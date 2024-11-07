@@ -4,9 +4,9 @@
     ViewData["Title"] = "Shalzuth's Reverse Engineering Blog";
     var blogEntries = Directory.GetDirectories("BlogContent").Select(dir =>
     {
-        var json = System.Text.Json.Nodes.JsonNode.Parse(System.IO.File.ReadAllText(dir + @"\blog.json"));
+        var json = System.Text.Json.Nodes.JsonNode.Parse(System.IO.File.ReadAllText(dir + @"/blog.json"));
         var title = json?["title"]?.GetValue<string>();
-        var path = dir.Replace("BlogContent\\", "");
+        var path = dir.Replace("BlogContent\\", "").Replace("BlogContent/", "");
         var desc = json?["description"]?.GetValue<string>();
         var date = DateTime.Parse(json?["date"]?.GetValue<string>());
         return new
