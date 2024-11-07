@@ -29,8 +29,7 @@ builder.Services.AddMarkdown(config =>
 builder.Services.AddSingleton<IStaticResourcesInfoProvider>(
   new StaticResourcesInfoProvider(
     [
-      new CssResource("/lib/bootstrap.min.css"),
-      new JsResource("/lib/bootstrap.min.js"),
+      new JsResource("/lib/highlightjs-badge.js"),
       new CssResource("/ShalzuthBlog.styles.css"),
       new CssResource("/css/site.css"),
       new BinResource("/favicon.ico"),
@@ -58,8 +57,7 @@ app.MapRazorPages()
    .WithStaticAssets();
 app.UseMarkdown();
 
-#if RELEASE
 Directory.CreateDirectory(@"bin\static");
 app.GenerateStaticContent(@"bin\static", true);
-#endif
+
 app.Run();
