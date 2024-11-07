@@ -5,4 +5,3 @@ chmod +x dotnet-install.sh
 dotnet --version
 cd ShalzuthBlog
 dotnet run
-find ShalzuthBlog/bin/static
