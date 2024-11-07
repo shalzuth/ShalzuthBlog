@@ -3,5 +3,5 @@ curl -sSL https://dot.net/v1/dotnet-install.sh > dotnet-install.sh
 chmod +x dotnet-install.sh
 ./dotnet-install.sh -c 9.0
 dotnet --version
-cd DogBlog
+cd ShalzuthBlog
 dotnet run
