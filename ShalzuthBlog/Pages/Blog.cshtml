@@ -1,0 +1,40 @@
+﻿@page "{blogTitle}"
+@model IndexModel
+@{
+    var blogFolder = RouteData.Values["blogTitle"] as string;
+
+    var json = System.Text.Json.Nodes.JsonNode.Parse(System.IO.File.ReadAllText("BlogContent/" + blogFolder + "/blog.json"));
+    var title = json?["title"]?.GetValue<string>();
+    var desc = json?["description"]?.GetValue<string>();
+    ViewData["Title"] = "Reverse Engineering: " + title;
+    ViewData["Description"] = "Reverse Engineering: " + desc;
+    var fc = System.IO.File.ReadAllText("BlogContent/" + blogFolder + "/content.md");
+    var html = new Microsoft.AspNetCore.Html.HtmlString(fc);
+    try
+    {
+        html = Westwind.AspNetCore.Markdown.Markdown.ParseHtmlString(fc);
+    }
+    catch (Exception e)
+    {
+        html = new Microsoft.AspNetCore.Html.HtmlString(e.Message + " : " + fc);
+        //html = Westwind.AspNetCore.Markdown.Markdown.ParseHtmlString(e.Message);
+    }
+}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/vs2015.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="/lib/highlightjs-badge.js"></script>
+<script>
+    setTimeout(function () {
+        var pres = document.querySelectorAll("pre>code");
+        for (var i = 0; i < pres.length; i++) {
+            hljs.highlightElement(pres[i]);
+        }
+    });
+    window.highlightJsBadge();
+
+</script>
+<div>
+    @Html.Raw(html)
+</div>
+

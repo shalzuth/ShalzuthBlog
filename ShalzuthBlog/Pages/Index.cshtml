@@ -1,0 +1,36 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Shalzuth's Reverse Engineering Blog";
+    var blogEntries = Directory.GetDirectories("BlogContent").Select(dir =>
+    {
+        var json = System.Text.Json.Nodes.JsonNode.Parse(System.IO.File.ReadAllText(dir + @"\blog.json"));
+        var title = json?["title"]?.GetValue<string>();
+        var path = dir.Replace("BlogContent\\", "");
+        var desc = json?["description"]?.GetValue<string>();
+        var date = DateTime.Parse(json?["date"]?.GetValue<string>());
+        return new
+        {
+            json,
+            title,
+            path,
+            desc,
+            date
+        };
+    }).OrderByDescending(b=>b.date);
+}
+<div class="row row-cols-1 row-cols-md-1 g-4">
+    @foreach(var blog in blogEntries)
+    {
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">@blog.title</h5>
+                <p class="card-text">@blog.desc</p>
+                <a href="/Blog/@blog.path" class="btn btn-primary">Read More</a>
+            </div>
+            <div class="card-footer">
+                <small class="text-body-secondary">@blog.date.ToString("MMMM d, yyyy")</small>
+            </div>
+        </div>
+    }
+</div>
