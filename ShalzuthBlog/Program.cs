@@ -59,6 +59,6 @@ app.MapRazorPages()
 app.UseMarkdown();
 
 Directory.CreateDirectory(@"bin\static");
-app.GenerateStaticContent(@"bin\static", true);
+//app.GenerateStaticContent(@"bin\static", true);
 
 app.Run();
