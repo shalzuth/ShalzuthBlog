@@ -33,6 +33,7 @@ var pages = new List<ResourceInfoBase>
       new CssResource("/ShalzuthBlog.styles.css"),
       new CssResource("/css/site.css"),
       new BinResource("/favicon.ico"),
+      new BinResource("/lucy.jpg"),
       new PageResource("/"),
 }.Concat(blogEntries);
 builder.Services.AddSingleton<IStaticResourcesInfoProvider>(new StaticResourcesInfoProvider(pages));
