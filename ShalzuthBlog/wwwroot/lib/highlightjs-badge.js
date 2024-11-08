@@ -169,7 +169,6 @@ Uses some ES6 features so won't work in IE without shims:
                         break;
                     }
                 }
-                console.log(link);
                 var html = hudText.replace("{{link}}", link).replace("{{link}}", link)
                     .trim();
 
