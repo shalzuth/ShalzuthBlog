@@ -202,3 +202,6 @@ It's important to note that some aspects of in-game automation, particularly tho
 This project provides an in-depth look into the process of reverse engineering mobile apps to dump assets and communicate with servers. While this is not a beginner's guide, it should offer valuable insights for those interested in mobile app reverse engineering, especially when working with complex formats like Protobuf and MessagePack.
 
 Feel free to explore the source code and contribute to the repository if you have suggestions or improvements!
+
+## Source
+(GitHub)[https://github.com/shalzuth/ff7ecapi]
