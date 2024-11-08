@@ -26,15 +26,16 @@ builder.Services.AddMarkdown(config =>
     };
     //config.AddMarkdownProcessingFolder("~/Index.cshtml");
 });
-builder.Services.AddSingleton<IStaticResourcesInfoProvider>(
-  new StaticResourcesInfoProvider(
-    [
+var blogEntries = Directory.GetDirectories("BlogContent").Select(dir => new PageResource("/Blog/" + dir.Replace("BlogContent\\", "").Replace("BlogContent/", "")));
+var pages = new List<ResourceInfoBase>
+{
       new JsResource("/lib/highlightjs-badge.js"),
       new CssResource("/ShalzuthBlog.styles.css"),
       new CssResource("/css/site.css"),
       new BinResource("/favicon.ico"),
       new PageResource("/"),
-    ]));
+}.Concat(blogEntries);
+builder.Services.AddSingleton<IStaticResourcesInfoProvider>(new StaticResourcesInfoProvider(pages));
 
 var app = builder.Build();
 
