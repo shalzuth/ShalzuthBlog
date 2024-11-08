@@ -204,4 +204,4 @@ This project provides an in-depth look into the process of reverse engineering m
 Feel free to explore the source code and contribute to the repository if you have suggestions or improvements!
 
 ## Source
-(GitHub)[https://github.com/shalzuth/ff7ecapi]
+[GitHub](https://github.com/shalzuth/ff7ecapi)

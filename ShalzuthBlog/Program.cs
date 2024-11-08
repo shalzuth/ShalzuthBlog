@@ -58,8 +58,9 @@ app.MapRazorPages()
    .WithStaticAssets();
 app.UseMarkdown();
 
-Console.WriteLine(Environment.UserName);
-Directory.CreateDirectory(@"bin\static");
-app.GenerateStaticContent(@"bin\static", true);
-
+if (Environment.UserName.Contains("buildbot"))
+{
+    Directory.CreateDirectory(@"bin\static");
+    app.GenerateStaticContent(@"bin\static", true);
+}
 app.Run();
