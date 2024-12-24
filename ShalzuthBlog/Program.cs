@@ -33,6 +33,7 @@ var pages = new List<ResourceInfoBase>
       new CssResource("/ShalzuthBlog.styles.css"),
       new CssResource("/css/site.css"),
       new BinResource("/favicon.ico"),
+      new BinResource("/img/p2w_example.png"),
       new BinResource("/lucy.jpg"),
       new PageResource("/"),
 }.Concat(blogEntries);
