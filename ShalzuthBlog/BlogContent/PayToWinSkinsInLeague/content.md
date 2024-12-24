@@ -1,4 +1,4 @@
-﻿# Are League of Legends Skins Pay 2 Win?
+﻿# Are League of Legends Skins Pay-To-Win?
 
 I wanted to test if premium skins actually improve your performance - or if they’re only cosmetic as Riot claims. Using data analysis, I broke down the numbers to find out. Along the journey, I reverse engineered the game's replay format and network protocol to collect the data.
 
