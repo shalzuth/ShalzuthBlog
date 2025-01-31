@@ -11,12 +11,14 @@
   <ItemGroup>
     <Content Remove="BlogContent\DeepDiveIntoGameNetworkProtocols\blog.json" />
     <Content Remove="BlogContent\FindingExploitsInGames\blog.json" />
+    <Content Remove="BlogContent\IFoundAGameExploit\blog.json" />
     <Content Remove="BlogContent\PayToWinSkinsInLeague\blog.json" />
   </ItemGroup>
 
   <ItemGroup>
     <None Include="BlogContent\DeepDiveIntoGameNetworkProtocols\blog.json" />
     <None Include="BlogContent\FindingExploitsInGames\blog.json" />
+    <None Include="BlogContent\IFoundAGameExploit\blog.json" />
     <None Include="BlogContent\PayToWinSkinsInLeague\blog.json" />
     <None Include="wwwroot\img\p2w_example.png" />
   </ItemGroup>
